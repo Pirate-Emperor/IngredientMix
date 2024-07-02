@@ -1,0 +1,71 @@
+# Ignore Xcode specific files and directories
+*.xcworkspace
+*.xcuserdata
+*.xccheckout
+*.xcscmblueprint
+*.xcodeproj
+*.xcuserstate
+*.swiftpm
+*.playground
+
+# Ignore Xcode user-specific data
+userdata/
+UserInterfaceState.xcuserstate
+
+# Ignore build artifacts and dependencies
+DerivedData/
+build/
+Build/
+*.o
+*.linkfilelist
+*.d
+Pods/
+Carthage/
+Carthage/Checkouts
+Carthage/Build
+.swiftpm/
+.swiftpm/xcode/
+.swiftpm/xcode/xcshareddata/
+.swiftpm/xcode/UserData/
+.swiftpm/xcode/UserData/*.xcuserdatad
+
+# Ignore temporary and log files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# Ignore cache artifacts
+*.DS_Store
+*.swp
+*.swo
+*.lock
+
+# Ignore macOS temporary and log files
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Ignore macOS cached files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+._*
+.Safari
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Ignore SwiftPM files
+Package.resolved
+
+.env
+
+GoogleService-Info.plist

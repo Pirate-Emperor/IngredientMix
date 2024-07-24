@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AddressEntity" representedClassName="AddressEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="isDefaultAddress" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="placeName" attributeType="String"/>
+    </entity>
+    <entity name="CardEntity" representedClassName="CardEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="cardCVC" attributeType="String"/>
+        <attribute name="cardExpirationDate" attributeType="String"/>
+        <attribute name="cardholderName" attributeType="String"/>
+        <attribute name="cardName" attributeType="String"/>
+        <attribute name="cardNumber" attributeType="String"/>
+        <attribute name="isPreferred" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CartItemEntity" representedClassName="CartItemEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dishID" attributeType="String"/>
+        <attribute name="quantity" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DishEntity" representedClassName="DishEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="calories" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="carbs" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dishDescription" attributeType="String"/>
+        <attribute name="fats" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="ingredients" attributeType="String"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isOffer" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="protein" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="recentPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tags" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="weight" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MenuVersion" representedClassName="MenuVersion" syncable="YES" codeGenerationType="class">
+        <attribute name="version" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MessageEntity" representedClassName="MessageEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="text" attributeType="String"/>
+    </entity>
+    <entity name="OfferEntity" representedClassName="OfferEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="condition" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="OrderEntity" representedClassName="OrderEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="address" attributeType="String"/>
+        <attribute name="deliveryCharge" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="orderComments" optional="YES" attributeType="String"/>
+        <attribute name="orderDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="orderID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="paidByCard" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="productCost" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="promoCodeDiscount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="status" attributeType="String"/>
+        <relationship name="orderItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItemEntity" inverseName="order" inverseEntity="OrderItemEntity"/>
+    </entity>
+    <entity name="OrderItemEntity" representedClassName="OrderItemEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dishID" attributeType="String"/>
+        <attribute name="dishName" attributeType="String"/>
+        <attribute name="dishPrice" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="quantity" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderEntity" inverseName="orderItems" inverseEntity="OrderEntity"/>
+    </entity>
+    <entity name="PromoCodeEntity" representedClassName="PromoCodeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="discountPercentage" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expirationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="freeDelivery" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="TagsContainerEntity" representedClassName="TagsContainerEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="tags" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="avatar" optional="YES" attributeType="Binary"/>
+        <attribute name="avatarURL" optional="YES" attributeType="String"/>
+        <attribute name="displayName" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+    </entity>
+</model>
